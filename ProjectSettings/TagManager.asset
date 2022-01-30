@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SunStopTrigger
   - Sun
+  - FieldPatch
   layers:
   - Default
   - TransparentFX
@@ -42,4 +43,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1732295047
+    locked: 0
+  - name: FieldPatch
+    uniqueID: 3973695803
+    locked: 0
+  - name: UI
+    uniqueID: 2203551117
+    locked: 0
+  - name: Plant
+    uniqueID: 3602824435
+    locked: 0
+  - name: Sun
+    uniqueID: 3255419171
     locked: 0
