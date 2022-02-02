@@ -21,6 +21,16 @@ public class Sun : MonoBehaviour
             rigidBody.velocity = Vector2.zero;
             StartCoroutine(SunStopped());
         }
+        else if (collision.gameObject.CompareTag("FieldPatchGround"))
+        {
+            var hitLocalGround = collision.transform.parent == transform.parent.parent;
+            if (hitLocalGround)
+            {
+                rigidBody.gravityScale = 0;
+                rigidBody.velocity = Vector2.zero;
+                StartCoroutine(SunStopped());
+            }
+        }
     }
 
     private void Update()

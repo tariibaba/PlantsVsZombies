@@ -7,6 +7,7 @@ TagManager:
   - SunStopTrigger
   - Sun
   - FieldPatch
+  - FieldPatchGround
   layers:
   - Default
   - TransparentFX
