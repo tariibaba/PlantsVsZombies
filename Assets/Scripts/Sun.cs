@@ -28,7 +28,7 @@ public class Sun : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             var raycast = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (raycast.collider && raycast.collider.gameObject.CompareTag("Sun"))
+            if (raycast.collider && raycast.collider.gameObject == gameObject)
             {
                 GameController.Instance.Data.Sun.Value += 25;
                 Destroy(gameObject);
