@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     private float sunPanelWidth;
     public Transform sunflowerPrefab;
     public Transform shooterPrefab;
+    public Transform zombiePrefab;
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         size = sunPrefab.GetComponent<SpriteRenderer>().bounds.size;
         sunPanelWidth = sunPanel.GetComponent<SpriteRenderer>().bounds.size.x;
+        InvokeRepeating("CreateZombie", 5, 10);
     }
 
     private IEnumerator SpawnSun()
@@ -73,5 +75,19 @@ public class GameController : MonoBehaviour
                 patch.transform.localScale *= new Vector2(scaleX, scaleY);
             }
         }
+    }
+
+    private void CreateZombie()
+    {
+        var lane = Random.Range(1, 8);
+        var fieldWidth = field.GetComponent<SpriteRenderer>().bounds.size.x;
+        var fieldHeight = field.GetComponent<SpriteRenderer>().bounds.size.y;
+        var fieldPatchWidth = fieldWidth / ColCount;
+        var fieldPatchHeight = fieldHeight / RowCount;
+        var zombieSize = zombiePrefab.GetComponent<SpriteRenderer>().bounds.size;
+        var defaultZombiePosX = field.transform.position.x + (fieldWidth / 2) + (zombieSize.x / 2) + 1;
+        var defaultZombiePosY = field.transform.position.y + (fieldHeight / 2) - fieldPatchHeight / 2 - fieldPatchHeight * (lane - 1);
+        var zombie = Instantiate(zombiePrefab);
+        zombie.transform.position = new Vector2(defaultZombiePosX, defaultZombiePosY);
     }
 }

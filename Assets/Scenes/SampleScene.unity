@@ -833,6 +833,7 @@ MonoBehaviour:
   sunPrefab: {fileID: 7814547119876985269, guid: f217fb0ef9fcafa4abd715de433fdf19, type: 3}
   sunflowerPrefab: {fileID: 7358502120590268650, guid: 7422183a964c1a44ea7cb2dfe6d42a92, type: 3}
   shooterPrefab: {fileID: 2010136865}
+  zombiePrefab: {fileID: 5259902401616370280, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
 --- !u!1 &1556186374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,6 +1473,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9ea3abcfd1273249a58567b3489b294, type: 3}
+--- !u!1001 &6913750770871606335
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5259902401616370280, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259902401616370280, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259902401616370280, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259902401616370280, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259902401616370280, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259902401616370280, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259902401616370280, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259902401616370280, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259902401616370280, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259902401616370280, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259902401616370280, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209999368815479760, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
+      propertyPath: m_Name
+      value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209999368815479760, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}
 --- !u!1001 &7814547119235357969
 PrefabInstance:
   m_ObjectHideFlags: 0
