@@ -9,6 +9,7 @@ public class FieldPatch : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     private bool isFilled;
+    public int Lane { get; set; }
 
     void Start()
     {
@@ -33,7 +34,7 @@ public class FieldPatch : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             var raycast = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (raycast.collider && raycast.collider.gameObject == gameObject)
+            if (raycast.collider && raycast.collider.gameObject == gameObject && !isFilled)
             {
                 if (GameController.Instance.Data.IsSeedSelected.Value)
                 {
@@ -52,7 +53,6 @@ public class FieldPatch : MonoBehaviour
                     plant.transform.parent = transform;
                     plant.localPosition = Vector2.zero;
                     isFilled = true;
-                    Debug.Log($"Instantiated");
                 }
             }
         }

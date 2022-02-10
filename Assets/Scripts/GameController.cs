@@ -22,7 +22,8 @@ public class GameController : MonoBehaviour
     private float sunPanelWidth;
     public Transform sunflowerPrefab;
     public Transform shooterPrefab;
-    public Transform zombiePrefab;
+    public Zombie zombiePrefab;
+    public Transform shooterBallPrefab;
 
     private void Awake()
     {
@@ -73,6 +74,7 @@ public class GameController : MonoBehaviour
                 var scaleX = fieldPatchWidth / patch.GetComponent<SpriteRenderer>().bounds.size.x;
                 var scaleY = fieldPatchHeight / patch.GetComponent<SpriteRenderer>().bounds.size.y;
                 patch.transform.localScale *= new Vector2(scaleX, scaleY);
+                patch.Lane = rowIndex + 1;
             }
         }
     }
@@ -88,6 +90,7 @@ public class GameController : MonoBehaviour
         var defaultZombiePosX = field.transform.position.x + (fieldWidth / 2) + (zombieSize.x / 2) + 1;
         var defaultZombiePosY = field.transform.position.y + (fieldHeight / 2) - fieldPatchHeight / 2 - fieldPatchHeight * (lane - 1);
         var zombie = Instantiate(zombiePrefab);
+        zombie.Lane = lane;
         zombie.transform.position = new Vector2(defaultZombiePosX, defaultZombiePosY);
     }
 }

@@ -14,4 +14,8 @@ public class GameData
         { PlantType.Sunflower, 50 },
         { PlantType.Shooter, 100 }
     };
+
+    public GameData()
+    {
+    }
 }

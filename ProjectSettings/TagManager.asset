@@ -8,6 +8,7 @@ TagManager:
   - Sun
   - FieldPatch
   - FieldPatchGround
+  - ShooterBall
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - 
   - 
   - Sun
-  - 
+  - Zombie
   - 
   - 
   - 
