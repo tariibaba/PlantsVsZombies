@@ -8,8 +8,7 @@ public class SeedImage : MonoBehaviour
 {
     private Button button;
     public PlantType plant;
-    private Image image;
-    private Color imageColor;
+    private CanvasGroup canvasGroup;
 
     private bool isUsable;
     public bool IsUsable
@@ -18,17 +17,14 @@ public class SeedImage : MonoBehaviour
         set
         {
             isUsable = value;
-            var newColor = imageColor;
-            if (!value) newColor.a = 0.5f;
-            image.color = newColor;
+            canvasGroup.alpha = isUsable ? 1 : 0.5f;
         }
     }
 
     void Start()
     {
         button = GetComponent<Button>();
-        image = GetComponent<Image>();
-        imageColor = image.color;
+        canvasGroup = GetComponent<CanvasGroup>();
         button.OnClickAsObservable().Subscribe((value) =>
         {
             if (IsUsable)
