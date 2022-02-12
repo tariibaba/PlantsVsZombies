@@ -9,6 +9,7 @@ TagManager:
   - FieldPatch
   - FieldPatchGround
   - ShooterBall
+  - Plant
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Plant
   - Sun
   - Zombie
   - 

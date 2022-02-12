@@ -12,7 +12,7 @@ public class Zombie : MonoBehaviour
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
-        rigidbody2d.velocity = 0.3f * Vector2.left;
+        StartMoving();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,6 +26,49 @@ public class Zombie : MonoBehaviour
             Destroy(collision.gameObject);
             Life -= 20;
             if (Life == 0) Destroy(gameObject);
+        }
+    }
+
+    private void StartMoving()
+    {
+        rigidbody2d.velocity = 0.3f * Vector2.left;
+    }
+
+    private void Update()
+    {
+        var hit = Physics2D.Raycast(transform.position, Vector2.left, 0.5f, 1 << 7);
+        if (hit.collider != null)
+        {
+            if (plantEatingCoroutine == null)
+            {
+                plantEatingCoroutine = StartCoroutine(StartEatingPlant(hit.collider.GetComponent<Plant>()));
+            }
+        }
+        else
+        {
+            if (plantEatingCoroutine != null)
+            {
+                StopCoroutine(plantEatingCoroutine);
+                plantEatingCoroutine = null;
+            }
+        }
+    }
+
+    private Coroutine plantEatingCoroutine;
+
+    private IEnumerator StartEatingPlant(Plant plant)
+    {
+        rigidbody2d.velocity = Vector2.zero;
+        while (true)
+        {
+            plant.Life -= 10;
+            if (plant.Life < 0)
+            {
+                plant.FieldPatch.IsFilled = false;
+                Destroy(plant.gameObject);
+                StartMoving();
+            }
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }

@@ -8,7 +8,7 @@ public class FieldPatch : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
-    private bool isFilled;
+    public bool IsFilled { get; set; }
     public int Lane { get; set; }
 
     void Start()
@@ -18,7 +18,7 @@ public class FieldPatch : MonoBehaviour
         originalColor = spriteRenderer.color;
         GameController.Instance.Data.IsSeedSelected.Subscribe((value) =>
         {
-            if (value && !isFilled)
+            if (value && !IsFilled)
             {
                 spriteRenderer.color = Color.blue;
             }
@@ -34,7 +34,7 @@ public class FieldPatch : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             var raycast = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (raycast.collider && raycast.collider.gameObject == gameObject && !isFilled)
+            if (raycast.collider && raycast.collider.gameObject == gameObject && !IsFilled)
             {
                 if (GameController.Instance.Data.IsSeedSelected.Value)
                 {
@@ -49,10 +49,11 @@ public class FieldPatch : MonoBehaviour
                     {
                         plant = Instantiate(GameController.Instance.shooterPrefab);
                     }
+                    plant.GetComponent<Plant>().FieldPatch = this;
                     GameController.Instance.Data.Sun.Value -= GameData.PlantPrice[selectedPlant];
                     plant.transform.parent = transform;
                     plant.localPosition = Vector2.zero;
-                    isFilled = true;
+                    IsFilled = true;
                 }
             }
         }
