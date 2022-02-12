@@ -978,7 +978,7 @@ MonoBehaviour:
   field: {fileID: 1941225006}
   patchPrefab: {fileID: 1896480277076239056, guid: b9ea3abcfd1273249a58567b3489b294, type: 3}
   sunPanel: {fileID: 358620734}
-  sunPrefab: {fileID: 7814547119876985269, guid: f217fb0ef9fcafa4abd715de433fdf19, type: 3}
+  sunPrefab: {fileID: 2691003769303197020, guid: f217fb0ef9fcafa4abd715de433fdf19, type: 3}
   sunflowerPrefab: {fileID: 7358502120590268650, guid: 7422183a964c1a44ea7cb2dfe6d42a92, type: 3}
   shooterPrefab: {fileID: 6706528409483871178, guid: bee89b238a5dfa34bac37524d384999a, type: 3}
   zombiePrefab: {fileID: 7468284565241115907, guid: 777663f5d768f4344988cf982c9bb2cd, type: 3}

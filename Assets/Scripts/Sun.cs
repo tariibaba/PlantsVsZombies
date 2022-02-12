@@ -5,7 +5,7 @@ public class Sun : MonoBehaviour
 {
     public float descendSpeed = 1;
     private Rigidbody2D rigidBody;
-    private const float DisappearTime = 5f;
+    public Sunflower Sunflower { get; set; }
 
     void Start()
     {
@@ -23,12 +23,15 @@ public class Sun : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("FieldPatchGround"))
         {
-            var hitLocalGround = collision.transform.parent == transform.parent.parent;
-            if (hitLocalGround)
+            if (Sunflower != null)
             {
-                rigidBody.gravityScale = 0;
-                rigidBody.velocity = Vector2.zero;
-                StartCoroutine(SunStopped());
+                var hitLocalGround = collision.transform.parent == Sunflower.transform.parent;
+                if (hitLocalGround)
+                {
+                    rigidBody.gravityScale = 0;
+                    rigidBody.velocity = Vector2.zero;
+                    StartCoroutine(SunStopped());
+                }
             }
         }
     }
@@ -37,7 +40,8 @@ public class Sun : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            var raycast = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            var camera = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var raycast = Physics2D.Raycast(camera, Vector2.zero);
             if (raycast.collider && raycast.collider.gameObject == gameObject)
             {
                 GameController.Instance.Data.Sun.Value += 25;

@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     private const int ColCount = 8;
     private const int RowCount = 8;
     public Transform sunPanel;
-    public Transform sunPrefab;
+    public Sun sunPrefab;
     public static GameController Instance { get; private set; }
     public GameData Data { get; set; } = new GameData();
     private Vector2 size;
@@ -46,11 +46,11 @@ public class GameController : MonoBehaviour
         {
             var sun = Instantiate(sunPrefab);
             sun.transform.parent = sunPanel;
-            sun.localPosition = Vector2.zero;
-            sun.localScale = size;
+            sun.transform.localPosition = Vector2.zero;
+            sun.transform.localScale = size;
             var minPosX = -sunPanelWidth / 2 + size.x;
             var maxPosX = sunPanelWidth / 2 - size.x;
-            sun.position += Vector3.right * Random.Range(minPosX, maxPosX);
+            sun.transform.position += Vector3.right * Random.Range(minPosX, maxPosX);
             var randomWait = Random.Range(5, 10);
             yield return new WaitForSeconds(randomWait);
         }
