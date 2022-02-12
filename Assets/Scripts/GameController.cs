@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum PlantType
@@ -71,8 +70,9 @@ public class GameController : MonoBehaviour
                 var posX = field.transform.position.x - (fieldWidth / 2) + (fieldPatchWidth / 2) + colIndex * fieldPatchWidth;
                 var posY = field.transform.position.y + (fieldHeight / 2) - (fieldPatchHeight / 2) - rowIndex * fieldPatchHeight;
                 patch.transform.position = new Vector3(posX, posY);
-                var scaleX = fieldPatchWidth / patch.GetComponent<SpriteRenderer>().bounds.size.x;
-                var scaleY = fieldPatchHeight / patch.GetComponent<SpriteRenderer>().bounds.size.y;
+                var spriteRenderer = patch.GetComponent<SpriteRenderer>();
+                var scaleX = fieldPatchWidth / spriteRenderer.bounds.size.x;
+                var scaleY = fieldPatchHeight / spriteRenderer.bounds.size.y;
                 patch.transform.localScale *= new Vector2(scaleX, scaleY);
                 patch.Lane = rowIndex + 1;
             }
@@ -84,7 +84,6 @@ public class GameController : MonoBehaviour
         var lane = Random.Range(1, 8);
         var fieldWidth = field.GetComponent<SpriteRenderer>().bounds.size.x;
         var fieldHeight = field.GetComponent<SpriteRenderer>().bounds.size.y;
-        var fieldPatchWidth = fieldWidth / ColCount;
         var fieldPatchHeight = fieldHeight / RowCount;
         var zombieSize = zombiePrefab.GetComponent<SpriteRenderer>().bounds.size;
         var defaultZombiePosX = field.transform.position.x + (fieldWidth / 2) + (zombieSize.x / 2) + 1;

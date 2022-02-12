@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
 
@@ -9,6 +7,7 @@ public class SeedImage : MonoBehaviour
     private Button button;
     public PlantType plant;
     private CanvasGroup canvasGroup;
+    GameData data;
 
     private bool isUsable;
     public bool IsUsable
@@ -25,15 +24,16 @@ public class SeedImage : MonoBehaviour
     {
         button = GetComponent<Button>();
         canvasGroup = GetComponent<CanvasGroup>();
+        data = GameController.Instance.Data;
         button.OnClickAsObservable().Subscribe((value) =>
         {
             if (IsUsable)
             {
-                GameController.Instance.Data.IsSeedSelected.Value = true;
-                GameController.Instance.Data.SelectedPlant = plant;
+                data.IsSeedSelected.Value = true;
+                data.SelectedPlant = plant;
             }
         });
-        GameController.Instance.Data.Sun.Subscribe((value) =>
+        data.Sun.Subscribe((value) =>
         {
             IsUsable = value >= GameData.PlantPrice[plant];
         }).AddTo(this);
