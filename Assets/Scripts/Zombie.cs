@@ -31,7 +31,7 @@ public class Zombie : MonoBehaviour
 
     private void StartMoving()
     {
-        rigidbody2d.velocity = 0.3f * Vector2.left;
+        rigidbody2d.velocity = 0.2f * Vector2.left;
     }
 
     private void Update()
